@@ -78,7 +78,12 @@
           .data('placeholder',ol)
           .focus(function(){
             ol.hide();
-          }).blur(function() {
+          })
+          //Auto formfill fix 
+					.change(function() {
+              ol[$this.val().length ? 'hide' : 'show']();
+          })
+          .blur(function() {
             ol[$this.val().length ? 'hide' : 'show']();
           }).triggerHandler('blur');
         $(window)
